@@ -48,6 +48,14 @@ const concesionaria = {
                 puede = true;
 
         return puede
+    },
+    autosQuePuedeComprar : function(persona) {
+        let listaDeAutos = []
+        this.autos.forEach(function(elemento){
+            if (persona.capacidadDePagoEnCuotas >= (elemento.precio / elemento.cuotas) && persona.capacidadDePagoTotal >= elemento.precio)
+            listaDeAutos.push(elemento)
+        });
+        return listaDeAutos
     }
 };
 
@@ -59,11 +67,14 @@ let persona = {
 
 //console.log(concesionaria.autos);
 //console.log(concesionaria.buscarAuto('JJK116'));
-concesionaria.venderAuto('JJK116');
-concesionaria.venderAuto('APL123');
+//concesionaria.venderAuto('JJK116');
+//concesionaria.venderAuto('APL123');
 //console.log(concesionaria.autos);
 //console.log(concesionaria.autosParaLaVenta());
 //console.log(concesionaria.autos0KM());
 //console.log(concesionaria.listaDeVentas());
 //console.log(concesionaria.totalDeVentas());
-console.log(concesionaria.puedeComprar(autos[1], persona));
+//console.log(concesionaria.puedeComprar(autos[1], persona));
+console.log(concesionaria.autosQuePuedeComprar(persona));
+
+// Para que todo sea igual al ejercio original, hay que borrar el tercer auto de autos.js
