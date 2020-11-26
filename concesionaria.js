@@ -32,9 +32,17 @@ const concesionaria = {
             }
         });
         return listaDePrecios;
+    },
+    totalDeVentas : function() {
+        let total = 0
+        if (this.listaDeVentas().length !== 0){
+            total = this.listaDeVentas().reduce(function(acum, num){
+                return acum + num
+        });
+    }
+    return total
     }
 };
-
 
 //console.log(concesionaria.autos);
 //console.log(concesionaria.buscarAuto('JJK116'));
@@ -43,4 +51,5 @@ concesionaria.venderAuto('APL123');
 //console.log(concesionaria.autos);
 //console.log(concesionaria.autosParaLaVenta());
 //console.log(concesionaria.autos0KM());
-console.log(concesionaria.listaDeVentas());
+//console.log(concesionaria.listaDeVentas());
+console.log(concesionaria.totalDeVentas());
