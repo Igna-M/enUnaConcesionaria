@@ -16,14 +16,22 @@ const concesionaria = {
             return elemento.vendido == false;
         });
         return autoOk
-    }
+    },
+    autos0KM : function() {
+        let autosOk = this.autosParaLaVenta()
+        let menosDe100 = autosOk.filter(function(elemento){
+            return elemento.km < 100;
+        });
+        return menosDe100
+        }
 
 };
 
 
 //console.log(concesionaria.autos);
 //console.log(concesionaria.buscarAuto('JJK116'));
-concesionaria.venderAuto('JJK116')
-//concesionaria.venderAuto('APL123')
+//concesionaria.venderAuto('JJK116');
+//concesionaria.venderAuto('APL123');
 //console.log(concesionaria.autos);
-console.log(concesionaria.autosParaLaVenta());
+//console.log(concesionaria.autosParaLaVenta());
+console.log(concesionaria.autos0KM());
