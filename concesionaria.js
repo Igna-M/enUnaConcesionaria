@@ -41,8 +41,21 @@ const concesionaria = {
         });
     }
     return total
+    },
+    puedeComprar : function(auto, persona) {
+        let puede = false
+            if (persona.capacidadDePagoEnCuotas >= (auto.precio / auto.cuotas) && persona.capacidadDePagoTotal >= auto.precio)
+                puede = true;
+
+        return puede
     }
 };
+
+let persona = {
+    nombre : "Juan",
+    capacidadDePagoEnCuotas : 20000,
+    capacidadDePagoTotal : 100000
+}
 
 //console.log(concesionaria.autos);
 //console.log(concesionaria.buscarAuto('JJK116'));
@@ -52,4 +65,5 @@ concesionaria.venderAuto('APL123');
 //console.log(concesionaria.autosParaLaVenta());
 //console.log(concesionaria.autos0KM());
 //console.log(concesionaria.listaDeVentas());
-console.log(concesionaria.totalDeVentas());
+//console.log(concesionaria.totalDeVentas());
+console.log(concesionaria.puedeComprar(autos[1], persona));
